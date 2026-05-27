@@ -1,4 +1,4 @@
-import Navbar from "@/components/layout/Navbar";
+// import Navbar from "@/components/layout/Navbar";
 import Footer from "@/components/layout/Footer";
 import Hero from "@/components/sections/Hero";
 import RealProblem from "@/components/sections/RealProblem";
@@ -13,7 +13,7 @@ import CoachSection from "@/components/sections/CoachSection";
 export default function App() {
   return (
     <div className="bw-root">
-      <Navbar />
+      {/* <Navbar /> */}
       <Hero />
       <RealProblem />
       <WhatThisIs />

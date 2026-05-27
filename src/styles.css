@@ -1,22 +1,10 @@
-@import "tailwindcss" source(none);
-@source "../src";
+@import "tailwindcss";
 @import "tw-animate-css";
 
-@custom-variant dark (&:is(.dark *));
+@source "../src";
 
-/*
- * Design system definition.
- *
- * The @theme inline block maps CSS custom properties to Tailwind utility
- * classes (e.g. --color-primary -> bg-primary, text-primary).
- *
- * The :root and .dark blocks define the actual color values using oklch.
- * All colors MUST use oklch format.
- *
- * To add a new semantic color:
- * 1. Add the variable to :root (light value) and .dark (dark value)
- * 2. Register it in @theme inline as --color-<name>: var(--<name>)
- */
+
+@custom-variant dark (&:is(.dark *));
 
 @theme inline {
   --radius-sm: calc(var(--radius) - 4px);
@@ -127,7 +115,7 @@
   --sidebar-primary: oklch(0.488 0.243 264.376);
   --sidebar-primary-foreground: oklch(0.984 0.003 247.858);
   --sidebar-accent: oklch(0.279 0.041 260.031);
-  --sidebar-accent-foreground: oklch(0.984 0.003 247.858);
+  --sidebar-accent-foreground: oklch(0.208 0.042 265.755);
   --sidebar-border: oklch(1 0 0 / 10%);
   --sidebar-ring: oklch(0.551 0.027 264.364);
 }
@@ -140,5 +128,626 @@
   body {
     background-color: var(--color-background);
     color: var(--color-foreground);
+  }
+}
+
+.graph-legend {
+  display: flex;
+  align-items: center;
+  gap: 28px;
+  margin-bottom: 18px;
+  color: #5e5b52;
+  font-size: 14px;
+  font-weight: 700;
+}
+
+.graph-legend span {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.dash-line,
+.solid-line {
+  display: inline-block;
+  width: 28px;
+  height: 0;
+  border-top: 2px solid;
+}
+
+.dash-line {
+  border-color: #8d8a80;
+  border-style: dashed;
+}
+
+.solid-line {
+  border-color: #36a77a;
+}
+
+.graph-y-label {
+  position: absolute;
+  left: 24px;
+  top: 50%;
+  transform: translateY(-50%) rotate(-90deg);
+  transform-origin: center;
+  color: #8d8a80;
+  font-size: 13px;
+  font-weight: 600;
+  letter-spacing: 0.02em;
+}
+
+.graph-box {
+  position: relative;
+}
+
+@media (max-width: 768px) {
+  .graph-legend {
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 14px;
+    font-size: 12px;
+  }
+
+  .graph-y-label {
+    display: none;
+  }
+}
+
+.bw-coach {
+  background: #f7f3e6;
+  padding: 88px 20px;
+}
+
+.bw-wrap {
+  width: 100%;
+  max-width: 1180px;
+  margin: 0 auto;
+}
+
+.bw-coach-grid {
+  display: grid;
+  grid-template-columns: 360px 1fr;
+  gap: 64px;
+  align-items: start;
+}
+
+.bw-coach-left {
+  width: 100%;
+}
+
+.bw-coach-photo-card {
+  overflow: hidden;
+  border-radius: 28px;
+  background: #ffffff;
+  padding: 12px;
+  box-shadow: 0 18px 44px rgba(0, 0, 0, 0.16);
+  width: 100%;
+  box-sizing: border-box;
+}
+
+.bw-coach-photo {
+  width: 100%;
+  height: 400px;
+  display: block;
+  object-fit: cover;
+  object-position: center center;
+  border-radius: 22px;
+}
+
+.bw-coach-badges {
+  margin-top: 18px;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 12px;
+}
+
+.bw-coach-badge {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  min-height: 48px;
+  border-radius: 999px;
+  background: #ffffff;
+  padding: 10px 14px;
+  color: #073b34;
+  font-size: 13px;
+  font-weight: 700;
+  box-shadow: 0 8px 18px rgba(0, 0, 0, 0.08);
+  white-space: nowrap;
+}
+
+.bw-coach-certificate {
+  margin-top: 24px;
+  overflow: hidden;
+  border-radius: 24px;
+  background: #ffffff;
+  padding: 12px;
+  box-shadow: 0 14px 34px rgba(0, 0, 0, 0.12);
+}
+
+.bw-coach-certificate-img {
+  width: 100%;
+  height: 250px;
+  display: block;
+  object-fit: contain;
+  border-radius: 16px;
+}
+
+.bw-coach-content {
+  padding-top: 8px;
+}
+
+.bw-eyebrow {
+  color: #b78331;
+  font-size: 13px;
+  font-weight: 800;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  margin-bottom: 12px;
+}
+
+.bw-coach-content h2 {
+  margin: 0;
+  color: #1f1f1f;
+  font-family: Georgia, "Times New Roman", serif;
+  font-size: 48px;
+  line-height: 1.05;
+  font-weight: 500;
+}
+
+.bw-coach-content h3 {
+  margin: 8px 0 0;
+  color: #202020;
+  font-size: 44px;
+  line-height: 1.08;
+  font-weight: 800;
+}
+
+.bw-coach-pills {
+  margin-top: 18px;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  align-items: center;
+}
+
+.bw-coach-pills span {
+  border-radius: 999px;
+  background: #073b34;
+  color: #ffffff;
+  padding: 7px 12px;
+  font-size: 12.5px;
+  font-weight: 700;
+  white-space: nowrap;
+}
+
+.bw-coach-lead {
+  margin: 24px 0 0;
+  max-width: 760px;
+  color: #3f3f3f;
+  font-size: 19px;
+  line-height: 1.7;
+}
+
+.bw-coach-subtitle {
+  margin: 20px 0 0;
+  color: #3f3f3f;
+  font-size: 19px;
+  font-weight: 600;
+}
+
+.bw-coach-method-box {
+  margin-top: 14px;
+  max-width: 760px;
+  border: 1px solid #e2dccb;
+  border-radius: 24px;
+  background: #ffffff;
+  padding: 24px;
+  box-shadow: 0 10px 26px rgba(0, 0, 0, 0.07);
+}
+
+.bw-coach-method-box ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: grid;
+  gap: 12px;
+}
+
+.bw-coach-method-box li {
+  display: flex;
+  align-items: flex-start;
+  gap: 12px;
+  color: #1f1f1f;
+  font-size: 18px;
+  line-height: 1.45;
+}
+
+.bw-coach-method-box li svg {
+  flex-shrink: 0;
+  margin-top: 2px;
+  color: #0b6b61;
+}
+
+.bw-coach-method-box p {
+  margin: 18px 0 0;
+  color: #3f3f3f;
+  font-size: 17px;
+  line-height: 1.6;
+}
+
+.bw-coach-info-grid {
+  margin-top: 22px;
+  max-width: 760px;
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 14px;
+}
+
+.bw-coach-info-card {
+  min-height: 78px;
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  border-radius: 16px;
+  background: #1a1a1a;
+  color: #ffffff;
+  padding: 18px;
+  box-shadow: 0 10px 24px rgba(0, 0, 0, 0.14);
+}
+
+.bw-coach-info-icon {
+  flex-shrink: 0;
+  color: #f8dd72;
+  display: flex;
+}
+
+.bw-coach-info-card p {
+  margin: 0;
+  font-size: 17px;
+  font-weight: 700;
+  line-height: 1.3;
+}
+
+@media (max-width: 900px) {
+  .bw-coach {
+    padding: 64px 18px;
+  }
+
+  .bw-coach-grid {
+    grid-template-columns: 1fr;
+    gap: 36px;
+  }
+
+  .bw-coach-photo {
+    height: 420px;
+  }
+
+  .bw-coach-content h2 {
+    font-size: 38px;
+  }
+
+  .bw-coach-content h3 {
+    font-size: 34px;
+  }
+
+  .bw-coach-info-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .bw-coach-badges {
+    grid-template-columns: 1fr 1fr;
+  }
+}
+
+@media (max-width: 520px) {
+  .bw-coach-photo {
+    height: 360px;
+  }
+
+  .bw-coach-certificate-img {
+    height: 220px;
+  }
+
+  .bw-coach-content h2 {
+    font-size: 34px;
+  }
+
+  .bw-coach-content h3 {
+    font-size: 30px;
+  }
+
+  .bw-coach-lead,
+  .bw-coach-subtitle {
+    font-size: 17px;
+  }
+
+  .bw-coach-badges {
+    grid-template-columns: 1fr;
+  }
+}
+
+
+
+
+
+/* FINAL COACH ALIGN FIX */
+.bw-coach .bw-wrap {
+  max-width: 1120px !important;
+  margin-left: auto !important;
+  margin-right: auto !important;
+  padding-top: 54px !important;
+  border-top: 1px solid rgba(120, 112, 90, 0.25) !important;
+}
+
+.bw-coach .bw-coach-grid {
+  width: fit-content !important;
+  margin-left: auto !important;
+  margin-right: auto !important;
+  display: grid !important;
+  grid-template-columns: 340px 670px !important;
+  gap: 56px !important;
+  align-items: start !important;
+  justify-content: center !important;
+}
+
+.bw-coach .bw-coach-left {
+  width: 340px !important;
+}
+
+.bw-coach .bw-coach-content {
+  width: 670px !important;
+  max-width: 670px !important;
+}
+
+.bw-coach .bw-coach-photo {
+  height: 350px !important;
+  object-position: top center !important;
+}
+
+.bw-coach .bw-coach-method-box,
+.bw-coach .bw-coach-info-grid {
+  max-width: 620px !important;
+}
+
+@media (max-width: 900px) {
+  .bw-coach .bw-coach-grid {
+    width: 100% !important;
+    grid-template-columns: 1fr !important;
+  }
+
+  .bw-coach .bw-coach-left,
+  .bw-coach .bw-coach-content {
+    width: 100% !important;
+    max-width: 100% !important;
+  }
+}
+
+/* EXACT COACH SECTION FINAL ALIGNMENT */
+.bw-coach {
+  background: #f7f3e6 !important;
+  padding: 96px 20px 120px !important;
+}
+
+.bw-coach .bw-wrap {
+  max-width: 1120px !important;
+  margin: 0 auto !important;
+  border-top: 1px solid rgba(120, 112, 90, 0.25) !important;
+  padding-top: 54px !important;
+}
+
+.bw-coach .bw-coach-grid {
+  width: fit-content !important;
+  margin: 0 auto !important;
+  display: grid !important;
+  grid-template-columns: 340px 580px !important;
+  gap: 56px !important;
+  align-items: start !important;
+  justify-content: center !important;
+  transform: translateX(42px) !important;
+}
+
+.bw-coach .bw-coach-left {
+  width: 340px !important;
+}
+
+.bw-coach .bw-coach-photo-card {
+  border-radius: 22px !important;
+  padding: 10px !important;
+}
+
+.bw-coach .bw-coach-photo {
+  width: 100% !important;
+  height: 340px !important;
+  object-fit: cover !important;
+  object-position: top center !important;
+  border-radius: 16px !important;
+}
+
+.bw-coach .bw-coach-badges {
+  margin-top: 16px !important;
+  grid-template-columns: 1fr 1fr !important;
+  gap: 14px !important;
+}
+
+.bw-coach .bw-coach-badge {
+  min-height: 48px !important;
+  font-size: 13px !important;
+  justify-content: center !important;
+  text-align: center !important;
+}
+
+.bw-coach .bw-coach-certificate {
+  margin-top: 18px !important;
+  border-radius: 22px !important;
+  padding: 14px !important;
+}
+
+.bw-coach .bw-coach-certificate-img {
+  height: 220px !important;
+  object-fit: contain !important;
+}
+
+.bw-coach .bw-coach-content {
+  width: 580px !important;
+  max-width: 580px !important;
+  padding-top: 0 !important;
+  text-align: left !important;
+}
+
+.bw-coach .bw-coach-content h2 {
+  font-size: 44px !important;
+  line-height: 1.05 !important;
+}
+
+.bw-coach .bw-coach-content h3 {
+  font-size: 37px !important;
+  line-height: 1.08 !important;
+}
+
+.bw-coach .bw-coach-lead,
+.bw-coach .bw-coach-method-box,
+.bw-coach .bw-coach-info-grid {
+  max-width: 580px !important;
+}
+
+.bw-coach .bw-coach-method-box {
+  padding: 20px !important;
+  border-radius: 18px !important;
+}
+
+.bw-coach .bw-coach-info-grid {
+  grid-template-columns: 1fr 1fr !important;
+  gap: 14px !important;
+}
+
+.bw-coach .bw-coach-info-card {
+  min-height: 70px !important;
+  border-radius: 14px !important;
+  background: #073b34 !important;
+}
+
+@media (max-width: 900px) {
+  .bw-coach .bw-coach-grid {
+    width: 100% !important;
+    grid-template-columns: 1fr !important;
+    transform: none !important;
+  }
+
+  .bw-coach .bw-coach-left,
+  .bw-coach .bw-coach-content {
+    width: 100% !important;
+    max-width: 100% !important;
+  }
+}
+
+
+* FINAL FAQ CENTER ALIGN */
+.faq-new {
+  padding: 92px 20px 72px !important;
+}
+
+.faq-new .faq-wrap {
+  width: 100% !important;
+  max-width: 1380px !important;
+  margin-left: auto !important;
+  margin-right: auto !important;
+}
+
+.faq-new .eyebrow {
+  color: #b78331 !important;
+  font-size: 13px !important;
+  font-weight: 800 !important;
+  letter-spacing: 0.28em !important;
+  text-transform: uppercase !important;
+  margin-bottom: 28px !important;
+}
+
+.faq-new .serif {
+  margin: 0 0 42px !important;
+  color: #24251f !important;
+  font-family: Georgia, "Times New Roman", serif !important;
+  font-size: 56px !important;
+  line-height: 1.05 !important;
+  font-weight: 500 !important;
+}
+
+.faq-new .faq-list {
+  width: 100% !important;
+  max-width: 1380px !important;
+  display: grid !important;
+  gap: 12px !important;
+}
+
+.faq-new .faq-item {
+  width: 100% !important;
+  border-radius: 10px !important;
+  background: rgba(255, 252, 246, 0.9) !important;
+  overflow: hidden !important;
+}
+
+.faq-new .faq-q {
+  width: 100% !important;
+  min-height: 62px !important;
+  border: 0 !important;
+  background: transparent !important;
+  padding: 0 28px !important;
+  color: #111714 !important;
+  display: flex !important;
+  align-items: center !important;
+  justify-content: space-between !important;
+  gap: 24px !important;
+  text-align: left !important;
+  font-size: 22px !important;
+  font-weight: 500 !important;
+  cursor: pointer !important;
+}
+
+.faq-new .faq-q .plus {
+  color: #a36e26 !important;
+  font-size: 22px !important;
+  font-weight: 400 !important;
+  line-height: 1 !important;
+  flex-shrink: 0 !important;
+}
+
+.faq-new .faq-a {
+  display: none !important;
+  padding: 0 28px 28px !important;
+}
+
+.faq-new .faq-item.open .faq-a {
+  display: block !important;
+}
+
+.faq-new .faq-a p {
+  margin: 0 !important;
+  color: #424238 !important;
+  font-size: 18px !important;
+  line-height: 1.65 !important;
+}
+
+@media (max-width: 768px) {
+  .faq-new {
+    padding: 68px 18px 56px !important;
+  }
+
+  .faq-new .serif {
+    font-size: 38px !important;
+    margin-bottom: 30px !important;
+  }
+
+  .faq-new .faq-q {
+    min-height: 58px !important;
+    padding: 0 20px !important;
+    font-size: 18px !important;
+  }
+
+  .faq-new .faq-a {
+    padding: 0 20px 22px !important;
+  }
+
+  .faq-new .faq-a p {
+    font-size: 16px !important;
   }
 }

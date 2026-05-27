@@ -23,7 +23,7 @@ export default function Payment() {
         <div className="pay-card">
           <div className="pay-price-block">
             <div className="pay-label">Monthly Membership</div>
-            <div className="pay-price">₹1,999 <span className="pay-period">/month</span></div>
+            <div className="pay-price">₹999 <span className="pay-period">/month</span></div>
             <div className="pay-note">Special rate for 5-day program participants</div>
           </div>
           <ul className="pay-features">
@@ -31,7 +31,14 @@ export default function Payment() {
               <li key={f}><Check />{f}</li>
             ))}
           </ul>
-          <a className="cta pay-cta" href="#">Join the Daily Practice — ₹1,999/month <span className="arrow">→</span></a>
+         <a
+  className="cta pay-cta"
+  href="https://rzp.io/rzp/breathwork-bcl"
+  target="_blank"
+  rel="noopener noreferrer"
+>
+  Join the Daily Practice — ₹999/month <span className="arrow">→</span>
+</a>
           <div className="pay-cancel">Cancel anytime. No refunds on current month.</div>
         </div>
       </div>

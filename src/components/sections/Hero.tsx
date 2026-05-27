@@ -16,21 +16,18 @@ export default function Hero() {
             <span className="dot">☀</span>
             <span>Daily Breathwork Membership</span>
           </div>
+<h1 className="serif hero-title">
+  <span style={{ display: "block", whiteSpace: "nowrap" }}>
+    The shift happened in 5 days.
+  </span>
 
-          <h1 className="serif hero-title">
-            <span style={{ display: "block" }}>
-              The grief. The anxiety. The tight muscles.
-            </span>
-            <span style={{ display: "block" }}>
-              The broken sleep. Your body remembered SAFE.
-            </span>
-            <span style={{ display: "block" }}>
-              Now make it permanent.
-            </span>
-          </h1>
+  <span style={{ display: "block" }}>
+    Making it permanent takes every morning after.
+  </span>
+</h1>
 
           <p className="hero-sub">
-            Continue what you started. ₹99/month. Cancel anytime.
+           Stress accumulates daily. Without daily practice, the body goes back to what it knows.
           </p>
 
           <div className="video-box video-box-up">
@@ -43,10 +40,15 @@ export default function Hero() {
             <div className="vsub">Watch Dr. Valar explain the practice</div>
           </div>
 
-          <a className="cta" href="#join">
-            Join the Daily Practice — Cancel Anytime{" "}
-            <span className="arrow">→</span>
-          </a>
+          <a
+  className="cta"
+  href="https://rzp.io/rzp/breathwork-bcl"
+  target="_blank"
+  rel="noopener noreferrer"
+>
+  Join the Daily Practice — Cancel Anytime{" "}
+  <span className="arrow">→</span>
+</a>
 
           <div className="hero-meta">
             Mon, Tue, Thu · Breathwork · 6:45 AM
