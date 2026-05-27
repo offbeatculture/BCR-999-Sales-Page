@@ -10,7 +10,9 @@ import SessionDetails from "@/components/sections/SessionDetails";
 import FAQ from "@/components/sections/FAQ";
 import Payment from "@/components/sections/Payment";
 import CoachSection from "@/components/sections/CoachSection";
-export default function App() {
+import ThankYou from "@/components/sections/ThankYou";
+
+function LandingPage() {
   return (
     <div className="bw-root">
       {/* <Navbar /> */}
@@ -21,10 +23,20 @@ export default function App() {
       <ConsistentPractice />
       <HRVGraph />
       <SessionDetails />
-      <CoachSection/>
+      <CoachSection />
       <FAQ />
       <Payment />
       <Footer />
     </div>
   );
+}
+
+export default function App() {
+  const path = window.location.pathname;
+
+  if (path === "/ty-breathwork") {
+    return <ThankYou />;
+  }
+
+  return <LandingPage />;
 }
