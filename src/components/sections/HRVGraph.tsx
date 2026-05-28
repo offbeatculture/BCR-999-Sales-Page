@@ -79,7 +79,7 @@ export default function HRVGraph() {
             </span>
           </div>
 
-          <div className="graph-y-label">% of day in safe mode</div>
+          {/* <div className="graph-y-label">% of day in safe mode</div> */}
 
           <svg
             className="graph-svg"
@@ -87,6 +87,19 @@ export default function HRVGraph() {
             xmlns="http://www.w3.org/2000/svg"
             preserveAspectRatio="xMidYMid meet"
           >
+
+            <text
+  x="-150"
+  y="18"
+  transform="rotate(-90)"
+  textAnchor="middle"
+  fontSize="12"
+  fill="#9b7a38"
+  fontWeight="700"
+  letterSpacing="4"
+>
+  % OF DAY IN SAFE MODE
+</text>
             {/* Horizontal grid lines */}
             {[30, 58, 86, 114, 142, 170, 198, 226, 254].map((y) => (
               <line

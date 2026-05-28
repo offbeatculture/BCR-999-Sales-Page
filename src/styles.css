@@ -811,3 +811,11 @@
   font-weight: 700;
   color: #073b34 !important;
 }
+
+.graph-y-label {
+  display: none !important;
+}
+
+.graph-svg {
+  overflow: visible !important;
+}
